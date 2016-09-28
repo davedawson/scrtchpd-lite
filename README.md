@@ -4,7 +4,7 @@ A lightweight version of [scrtchpd](http://scrtchpd.com). You can see this speci
 
 scrtchpdLite is a single page notepad app. As you type, your notes are saved in your browser using `localStorage`. 
 
-The original scrtchpd was built years ago using jQuery and a lot of plugins. It's such a straightforward app, so I've been curious if there was a way that I could recreate the app without any libraries or plugins. And when I saw this competition, I added an additional challenge, keep the whole thing under 10k! Turns out it's definitely possible, and I learned a ton in the process. 
+The original scrtchpd was built years ago using jQuery and a lot of plugins. It's a straightforward app, so I've been curious if there's a way that to recreate the it without any libraries or plugins. And when I saw this competition, I added an additional challenge, keep the whole thing under 10k! Turns out it's definitely possible, and I learned a ton in the process. 
 
 After the initial scrtchpd functionality was built, I had a few `kb` to spare, so I added a few new features: 
 
