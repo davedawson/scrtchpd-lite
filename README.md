@@ -24,11 +24,12 @@ All assets have been minimized, and use the least amount of code possible to acc
 
 Once gzipped, the assets come in well under 10k. 
 
-Markup: `1.8k`.
-Javascript: `2.8k`.
-CSS: `4.6k`.
+Markup: `2.8k`.
+Javascript: `2.4k`.
+CSS: `3.7k`.
 
-**Total size: `9.2k`.**
+**Total size: `8.9k`.**
+**Total gzipped size: `8.3k`.**
 
 ### Interoperability
 
@@ -56,4 +57,4 @@ I've learned so much about Javascript during this experiment! This is my favorit
 
 ## How To Run This Thing
 
-It's a static app, so just open up `index.html` on a server, and you should be all set. 
+It's a static app, so just open up `index.html` on a server, and you should be all set.
