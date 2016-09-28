@@ -1,20 +1,21 @@
-# scrtchpdLite
+# scrtchpdLite | 10k Apart Entry
 
-A super lightweight version of [scrtchpd](http://scrtchpd.com). You can see this special 10k Apart version live at [lite.scrtchpd.com](lite.scrtchpd.com).
+A super lightweight version of [scrtchpd](http://scrtchpd.com). You can see this special [10k Apart](https://a-k-apart.com/) version live at [lite.scrtchpd.com](lite.scrtchpd.com).
 
 scrtchpdLite a one page notepad app. As you type, your notes are saved in your browser using `localStorage`. After the initial functionality was built, I had a few `kb` to spare, so I added a few features: 
 
-- **Type Size:** Using the + or - buttons, users can enlarge or shrink the text size of a note. This choice is saved in the app as well.
-- **Type Style:** Users can select either a sans-serif or serif typeface to use in the app. This choice is saved in the app as well.
+- **Type Size:** Using the + or - buttons, users can enlarge or shrink the text size of a note. This choice is saved in the app.
+- **Type Style:** Users can select either a sans-serif or serif typeface to use in the app. This choice is also saved in the app.
 - **Details:** As the user types, the app counts the number of words and characters in the note.
 - **Clear Note Pad:** Why use the keyboard to delete your notes when you can use a button?
 
-#### A few things to consider:
+#### A few things I considered:
 
 ### Performance
 
 All assets have been minimized, and use the least amount of code possible to accomplish the goal. A few notes: 
 - The icons are minimized, inline `SVG` elements.
+- Class and ID names have been minimized to single characters.
 - All animations are based in `CSS`. 
 
 ### Size
@@ -33,7 +34,7 @@ CSS: `4.6k`.
 
 > Your project must work equally well in all modern browsers.
 
-The app has been tested in browsers, and even works in every IE version I could find. The app is pretty simple, so there was only one adjustment I had to make to make this work everywhere. For some reason, modern versions of IE remove the placeholder text of a field once focused, so in IE the field doesn't auto focus, but in all other browsers it does. 
+The app has been tested in modern, and not-so-modern browsers, and even works in every IE version I could find. The app is pretty simple, so there was only one adjustment I had to make to make this work everywhere: Seemingly a bug, modern versions of IE hide the placeholder text of a field once focused. This hides the intro text on first load, which is a bummer. So in IE the field doesn't auto focus, but in all other browsers it does. 
 
 ### Accessibility
 

@@ -1,9 +1,9 @@
 noteStorage = localStorage;
 notePad = document.getElementById('note-content');
-sansLabel = document.getElementById('text-sans');
-serifLabel = document.getElementById('text-serif');
-characterCountLabel = document.getElementById('character-count');
-wordCountLabel = document.getElementById('word-count');
+sansLabel = document.getElementById('t-ss');
+serifLabel = document.getElementById('t-s');
+characterCountLabel = document.getElementById('c-c');
+wordCountLabel = document.getElementById('w-c');
 sans = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 serif = '"Hoefler Text", "Cambria", "Baskerville Old Face", Garamond, "Times New Roman", Georgia, serif';
 var scrtchpd = {
@@ -28,13 +28,13 @@ var scrtchpd = {
     },
 
     tooltipToggle: function() {
-        tooltip = document.getElementById('note-details');
+        tooltip = document.getElementById('n-d');
         var className = tooltip.getAttribute("class");
-        if (className=="hidden") {
-            tooltip.className = "visible";
+        if (className=="h") {
+            tooltip.className = "v";
         }
         else {
-            tooltip.className = "hidden";
+            tooltip.className = "h";
         }   
 
         scrtchpd.countCharacters(notePad.value);
@@ -47,7 +47,7 @@ var scrtchpd = {
         document.onkeydown = function(evt) {
             evt = evt || window.event;
             if (evt.keyCode == 27) {
-                tooltip.className = "hidden";
+                tooltip.className = "h";
             }
         };
     },
@@ -55,12 +55,12 @@ var scrtchpd = {
     fontStyleToggle: function(type) {
         if (type=="sans") {
             serifLabel.className = "";
-            sansLabel.className = "active";
+            sansLabel.className = "a";
             notePad.style.fontFamily = sans;
             noteStorage.setItem('fontStyle', 'sans');
             return false;
         } else {
-            serifLabel.className = "active";
+            serifLabel.className = "a";
             sansLabel.className = "";
             notePad.style.fontFamily = serif;
             noteStorage.setItem('fontStyle', 'serif');
@@ -72,10 +72,10 @@ var scrtchpd = {
         if (noteStorage.fontStyle) {
             
             if (noteStorage.fontStyle == 'sans') {
-                sansLabel.className = "active";
+                sansLabel.className = "a";
                 notePad.style.fontFamily = sans;
             } else {
-                serifLabel.className = "active";
+                serifLabel.className = "a";
                 notePad.style.fontFamily = serif;
             }
         }
