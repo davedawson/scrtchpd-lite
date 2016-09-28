@@ -11,11 +11,11 @@ gulp.task('default', ['browser-sync', 'watch', 'compress', 'html']);
 
 // Static Server + watching scss/html files
 gulp.task('watch', ['sass'], function() {
-    gulp.watch("sass/**/*.scss", ['sass']);
-    gulp.watch(['index.html', '_/*', '*.html']);
+    gulp.watch("_/c/**/*.scss", ['sass']);
+    gulp.watch(['index.html', '_/*', '*.html', 'src/index.html']);
 });
 
-gulp.task('browser-sync', ['sass'], function() {
+gulp.task('browser-sync', ['sass', 'compress', 'html'], function() {
     browserSync({
         server: {
             baseDir: "./"
@@ -25,13 +25,14 @@ gulp.task('browser-sync', ['sass'], function() {
 
 var sassOptions = {
   errLogToConsole: true,
+  // outputStyle: 'expanded'
   outputStyle: 'compressed'
 };
 
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 1%', 'Firefox ESR']
 };
-var input = '_/c/i.scss';
+var input = 'src/i.scss';
 var output = '_/c';
 
 gulp.task('sass', function () {
@@ -44,7 +45,7 @@ gulp.task('sass', function () {
 
 gulp.task('compress', function (cb) {
   pump([
-        gulp.src('_/j/i.js')
+        gulp.src('src/i.js')
             .pipe(rename({ suffix: '.min' })),
         uglify(),
         gulp.dest('_/j')
@@ -56,7 +57,7 @@ gulp.task('compress', function (cb) {
 gulp.task('html', function () {
   return gulp
     .src('src/index.html')
-    .pipe(htmlmin({collapseWhitespace: true, removeComments: true, collapseBooleanAttributes: true}))
+    .pipe(htmlmin({collapseWhitespace: true, collapseBooleanAttributes: true}))
     .pipe(gulp.dest(''));
 });
 

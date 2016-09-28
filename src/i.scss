@@ -1,3 +1,37 @@
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
 // http://meyerweb.com/eric/tools/css/reset/ 
 // v2.0 | 20110126
 // License: none (public domain)
@@ -23,31 +57,12 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-// HTML5 display-role reset for older browsers 
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-
 
 .group:after {
   visibility: hidden;
@@ -63,6 +78,7 @@ table {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
+  line-height: 1.3em;
   background: #fff;
 }
 
@@ -86,10 +102,18 @@ textarea {
 	padding: 100px 20%; 
 	width: 100%; 
 	height: 100%; 
+  max-width: 2000px;
 	-webkit-box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
 	box-sizing: border-box; 
+  transition: all, 0.3s;
+  animation: fadein 1s;
+  @media only screen and (max-width: 640px) {
+    padding: 50px 10%;
+  }
 }
+
+
 
 textarea:focus { 
 	outline: 0; 
@@ -108,22 +132,9 @@ a {
   font-weight: bold;
 }
 
-ul, ol {
-  margin: 20px 0;
-}
-ul li, ol li {
-  list-style-type: disc;
-  margin-left: 30px;
-}
-
 strong {
   font-weight: bold;
 }
-
-em {
-  font-style: italic;
-}
-
 
 // Elements 
 .icon {
@@ -137,27 +148,19 @@ em {
 .main-button {
   position: relative;
   z-index: 3;
-  width: 20px;
-  height: 20px;
+  width: auto;
+  height: auto;
   padding: 8px;
   border: 3px solid #ccc;
   border-radius: 100px;
-  img {
-    max-width: 100%;  
+  line-height: 75%;
+  .icon {
+    width: 20px;
+    height: 20px;
   }
   &:hover {
     border-color: #777;
-    .icon {
-      fill: #777;
-    }
   }
-}
-
-.menu-button {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  z-index: 9;
 }
 
 .new-note-button {
@@ -171,14 +174,13 @@ em {
   display: block;
   position: absolute;
   bottom: 0;
-  height: 50px;
+  height: 60px;
   width: 100%;
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.02) 1%,rgba(255,255,255,1) 41%,rgba(255,255,255,1) 100%);
 }
 
 #note-details {
   max-width: 400px;
-  max-height: 600px;
-  overflow: scroll;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
@@ -189,54 +191,46 @@ em {
   font-size: 14px;
   line-height: 20px;
   min-width: 300px;
-  right: 50px;
+  right: 30px;
   padding: 20px;
   &.visible {
     display: block;
     transform: translateX(0);  
   }
-}
-
-.note-details-icon {
-  left: auto;
-  float: right;
-  right: 50px;
-}
-
-@media only screen and (max-width: 640px) {
-  .note-details-icon {
-    float: none;
-    right: auto;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
+  .main-button {
+    width: auto;
+    height: auto;
+    padding: 6px;
+    float: left;
+    margin-right: 15px;
+    .icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    min-width: 0;
+    width: 80%;
+    right: 10%;
+    left: 10%;
   }
 }
 
-#note-details .main-button {
-  width: 15px;
-  height: 15px;
-  padding: 6px;
-  float: left;
-  margin-right: 15px;
-}
-
-#note-details ul li, p, a {
+ul li, p, a {
   font-size: 14px;
   line-height: 20px;
 }
-  
-#note-details ul {
+ul {
   margin: 0;
   padding: 0;
 }
-#note-details li {
+li {
   list-style: none;
   padding: 0;
   margin: 0;
   margin-bottom: 5px;
 }
-#note-details label {
+label {
   color: #999;
   text-transform: uppercase;
   font-weight: bold;
@@ -247,6 +241,25 @@ em {
   margin-bottom: 5px;
 }
 
+
+.note-details-icon {
+  left: auto;
+  float: right;
+  right: 30px;
+}
+
+@media only screen and (max-width: 640px) {
+  .note-details-icon {
+    float: none;
+    right: auto;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    width: 45px;
+  }
+}
+
+
 #reset-text {
   font-size: 13px;
   position: relative;
@@ -254,23 +267,23 @@ em {
   font-weight: bold;
   color: #999;
   float: right;
-}
-
-#reset-text:hover {
-  color: #777;
+  &:hover {
+    color: #777;  
+  }
 }
 
 #text-sans, #text-serif {
   padding: 5px 10px; 
   border-radius: 40px;
   border: 3px solid transparent;
-  margin-top: 10px;
   color: #666;
   line-height: 100%;
-}
-
-#text-sans:hover, #text-serif:hover {
-  border-color: #777;
+  &:hover {
+    border-color: #777;
+  }
+  &.active {
+    border-color: #D8D8D8;
+  }
 }
 
 #text-sans {
@@ -279,24 +292,24 @@ em {
 
 #text-serif {
   font-family: "Hoefler Text", "Cambria", "Baskerville Old Face", Garamond, "Times New Roman", Georgia, serif;
+  padding-top: 8px;
 }
 
-#text-sans.active, #text-serif.active {
-  border-color: #D8D8D8;
-}
 .full-section {
   padding: 20px;
 }
 .small-section {
   clear: both;
   padding-bottom: 15px;
-  margin-bottom: 15px;
-  
+  margin-bottom: 15px;  
   position: relative;
   &:last-child {
     border-bottom: 0;
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+  &.type label {
+    margin-bottom: 10px;
   }
 }
 
@@ -306,10 +319,12 @@ em {
   right: 20px;
   text-align: right;
 }
+
 .delete-section {
   padding: 10px 20px;
   border: 0;
 }
+
 .clear-note {
   color: #b94747;
   font-weight: bold;
