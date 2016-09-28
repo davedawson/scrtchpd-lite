@@ -1,6 +1,6 @@
 # scrtchpdLite | 10k Apart Entry
 
-A super lightweight version of [scrtchpd](http://scrtchpd.com). You can see this special [10k Apart](https://a-k-apart.com/) version live at [lite.scrtchpd.com](lite.scrtchpd.com).
+A lightweight version of [scrtchpd](http://scrtchpd.com). You can see this special [10k Apart](https://a-k-apart.com/) version live at [lite.scrtchpd.com](lite.scrtchpd.com).
 
 scrtchpdLite a one page notepad app. As you type, your notes are saved in your browser using `localStorage`. After the initial functionality was built, I had a few `kb` to spare, so I added a few features: 
 
@@ -16,7 +16,7 @@ scrtchpdLite a one page notepad app. As you type, your notes are saved in your b
 All assets have been minimized, and use the least amount of code possible to accomplish the goal. A few notes: 
 - The icons are minimized, inline `SVG` elements.
 - Class and ID names have been minimized to single characters.
-- All animations are based in `CSS`. 
+- All animations are based in `CSS` for modern browsers.
 
 ### Size
 
@@ -54,3 +54,6 @@ I've tested the app on a large number of browsers and devices and it looks and w
 
 I've learned so much about Javascript during this experiment! This is my favorite rule because it forced me to understand what's actually happening in the JS that I write. 
 
+## How To Run This Thing
+
+It's a static app, so just open up `index.html` on a server, and you should be all set. 
