@@ -21,6 +21,7 @@ All assets have been minimized, and use the least amount of code possible to acc
 - The icons are minimized, inline `SVG` elements.
 - Class and ID names have been minimized to single characters.
 - All animations are based in `CSS` for modern browsers.
+- The weight of the page comes in under 10k, and once gzipped, it will be even lighter. 
 
 ### Size
 
