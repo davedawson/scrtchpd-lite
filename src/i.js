@@ -8,7 +8,7 @@ sans = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 serif = '"Hoefler Text", "Cambria", "Baskerville Old Face", Garamond, "Times New Roman", Georgia, serif';
 var scrtchpd = {
     
-    setNote: function(){
+    setNote: function() {
         if (noteStorage.myNote) {
             notePad.value = noteStorage.myNote;    
         } else {
@@ -17,19 +17,17 @@ var scrtchpd = {
         }
     },
 
-    saveNote: function(){
+    saveNote: function() {
         document.onkeyup = function () {
             noteStorage.myNote= notePad.value;
         }
-        
     },
 
-    focusNote: function(){
+    focusNote: function() {
         notePad.focus();
     },
 
-    tooltipToggle: function(){
-        
+    tooltipToggle: function() {
         tooltip = document.getElementById('note-details');
         var className = tooltip.getAttribute("class");
         if (className=="hidden") {
@@ -45,7 +43,7 @@ var scrtchpd = {
 
     },
 
-    closeToolTip: function(){
+    closeToolTip: function() {
         document.onkeydown = function(evt) {
             evt = evt || window.event;
             if (evt.keyCode == 27) {
@@ -54,7 +52,7 @@ var scrtchpd = {
         };
     },
 
-    fontStyleToggle: function(type){
+    fontStyleToggle: function(type) {
         if (type=="sans") {
             serifLabel.className = "";
             sansLabel.className = "active";
@@ -70,7 +68,7 @@ var scrtchpd = {
         }
     },
 
-    checkFontStyle: function(){
+    checkFontStyle: function() {
         if (noteStorage.fontStyle) {
             
             if (noteStorage.fontStyle == 'sans') {
@@ -83,7 +81,7 @@ var scrtchpd = {
         }
     },
 
-    countCharacters: function(text){
+    countCharacters: function(text) {
         characterCountLabel.innerHTML = text.length;
 
         var value = text;
@@ -92,13 +90,13 @@ var scrtchpd = {
         wordCountLabel.innerHTML = wordCount;
     },
 
-    characterWatcher: function(){
+    characterWatcher: function() {
         notePad.onkeyup = function () {
             scrtchpd.countCharacters(this.value);
         };
     },
 
-    checkTextSize: function(){
+    checkTextSize: function() {
         if (noteStorage.textSize) {
             notePad.style.fontSize = parseFloat(noteStorage.textSize) + "px";
         }
@@ -112,20 +110,19 @@ var scrtchpd = {
         return false;
     },
 
-    resetText: function(defaultSize){
+    resetText: function(defaultSize) {
         var textSize = notePad.style.fontSize = defaultSize + "px";
         notePad.style.lineHeight = '1.3em';
         noteStorage.setItem('textSize', textSize);
         return false;
     },
 
-    clearPad: function(){
+    clearPad: function() {
         if (confirm('Clear all of your notes?')) { 
             notePad.value = "";
             scrtchpd.focusNote();
             noteStorage.myNote= notePad.value;
         }
-        
         return false;
     }
 }

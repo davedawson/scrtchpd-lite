@@ -119,12 +119,6 @@ textarea:focus {
 	outline: 0; 
 }
 
-h2 {
-  font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
 a {
   text-decoration: none;
   font-size: 16px;
@@ -162,13 +156,6 @@ strong {
     border-color: #777;
   }
 }
-
-.new-note-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
 
 .bottom-bar {
   display: block;
@@ -220,16 +207,7 @@ ul li, p, a {
   font-size: 14px;
   line-height: 20px;
 }
-ul {
-  margin: 0;
-  padding: 0;
-}
-li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 5px;
-}
+
 label {
   color: #999;
   text-transform: uppercase;
@@ -295,9 +273,6 @@ label {
   padding-top: 8px;
 }
 
-.full-section {
-  padding: 20px;
-}
 .small-section {
   clear: both;
   padding-bottom: 15px;
@@ -311,18 +286,6 @@ label {
   &.type label {
     margin-bottom: 10px;
   }
-}
-
-.settings {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-align: right;
-}
-
-.delete-section {
-  padding: 10px 20px;
-  border: 0;
 }
 
 .clear-note {
