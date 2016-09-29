@@ -1,6 +1,10 @@
 <?php
 	session_start();
 
+  if (!isset($_SESSION['note'])) {
+    $_SESSION["note"] = trim(' ');  
+  }
+  
 	$note = $_SESSION["note"];
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$_SESSION["note"] = $_POST['n-c'];
