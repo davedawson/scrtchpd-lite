@@ -28,7 +28,7 @@ All assets have been minimized, and use the least amount of code possible to acc
 
 > Your total initial download can’t be over 10kB. 
 
-Once gzipped, the assets come in well under 10k. 
+Before gzipping these, they come in under 10k. Once gzipped, the app will be even lighter.
 
 Markup: `2.9k`.
 Javascript: `2.5k`.
