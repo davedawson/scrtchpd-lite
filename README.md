@@ -12,6 +12,7 @@ After the initial scrtchpd functionality was built, I had a few `kb` to spare, s
 - **Type Style:** Users can select either a sans-serif or serif typeface to use in the app. This choice is also saved in the app.
 - **Details:** As the user types, the app counts the number of words and characters in the note.
 - **Clear Note Pad:** Why use the keyboard to delete your notes when you can use a button?
+- **JS Fallback:** When JS is disabled, the user is able to store notes as a session variable.
 
 #### A few things I considered:
 
@@ -29,12 +30,11 @@ All assets have been minimized, and use the least amount of code possible to acc
 
 Once gzipped, the assets come in well under 10k. 
 
-Markup: `2.8k`.
-Javascript: `2.4k`.
-CSS: `3.7k`.
+Markup: `2.9k`.
+Javascript: `2.5k`.
+CSS: `4.0k`.
 
-**Total size: `8.9k`.**
-**Total gzipped size: `8.3k`.**
+**Total size: `9.4k`.**
 
 ### Interoperability
 
@@ -54,6 +54,9 @@ Yes! The writing experience is accessible on all devices. I ran the app through 
 
 I've tested the app on a large number of browsers and devices and it looks and works great. Another benefit of keeping an app simple! In older versions of IE, the placeholder text isn't displayed, but the app works as intended. 
 
+The app even works without Javascript! When JS is disabled on a browser, there is a PHP fallback that stores the notes as a session variable.
+
+
 ### Libraries
 
 > Use only what you need.
@@ -62,4 +65,4 @@ I've learned so much about Javascript during this experiment! This is my favorit
 
 ## How To Run This Thing
 
-It's a static app, so just open up `index.html` on a server, and you should be all set.
+It's a static app, so just open up `index.php` on a server, and you should be all set.
