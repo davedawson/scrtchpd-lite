@@ -1,36 +1,11 @@
-
 @keyframes fadein {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
 }
-
-/* Firefox */
-@-moz-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* Safari and Chrome */
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 
 // http://meyerweb.com/eric/tools/css/reset/ 
 // v2.0 | 20110126

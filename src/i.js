@@ -1,38 +1,39 @@
-noteStorage = localStorage;
-notePad = document.getElementById('n-c');
-sansLabel = document.getElementById('t-ss');
-serifLabel = document.getElementById('t-s');
-characterCountLabel = document.getElementById('c-c');
-wordCountLabel = document.getElementById('w-c');
+nS = localStorage;
+np = document.getElementById('n-c');
+ssL = document.getElementById('t-ss');
+sL = document.getElementById('t-s');
+cCL = document.getElementById('c-c');
+wCL = document.getElementById('w-c');
 sans = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 serif = '"Hoefler Text", "Cambria", "Baskerville Old Face", Garamond, "Times New Roman", Georgia, serif';
 var scrtchpd = {
-    jsOptions: function(){
-        var button = document.getElementById('b');
-        button.className = "m-b n-d-i v";
-        var save = document.getElementById('s-w');
-        save.className = "h";
+    jsO: function(){
+        var b = document.getElementById('b');
+        b.className = "m-b n-d-i v";
+        var s = document.getElementById('s-w');
+        s.className = "h";
     }, 
-    setNote: function() {
-        if (noteStorage.myNote) {
-            notePad.value = noteStorage.myNote;    
+
+    stN: function() {
+        if (nS.myNote) {
+            np.value = nS.myNote;    
         } else {
-            noteStorage.setItem('myNote', "");
-            noteStorage.setItem('fontStyle', "sans");
+            nS.setItem('myNote', "");
+            nS.setItem('fontStyle', "sans");
         }
     },
 
-    saveNote: function() {
+    svN: function() {
         document.onkeyup = function () {
-            noteStorage.myNote= notePad.value;
+            nS.myNote= np.value;
         }
     },
 
-    focusNote: function() {
-        notePad.focus();
+    fN: function() {
+        np.focus();
     },
 
-    tooltipToggle: function() {
+    ttT: function() {
         var tooltip = document.getElementById('n-d');
         var className = tooltip.getAttribute("class");
         if (className=="h") {
@@ -42,13 +43,13 @@ var scrtchpd = {
             tooltip.className = "h";
         }   
 
-        scrtchpd.countCharacters(notePad.value);
+        scrtchpd.cntC(np.value);
 
         return false;
 
     },
 
-    closeToolTip: function() {
+    cTT: function() {
         document.onkeydown = function(evt) {
             evt = evt || window.event;
             if (evt.keyCode == 27) {
@@ -57,85 +58,85 @@ var scrtchpd = {
         };
     },
 
-    fontStyleToggle: function(type) {
+    fST: function(type) {
         if (type=="sans") {
-            serifLabel.className = "";
-            sansLabel.className = "a";
-            notePad.style.fontFamily = sans;
-            noteStorage.setItem('fontStyle', 'sans');
+            sL.className = "";
+            ssL.className = "a";
+            np.style.fontFamily = sans;
+            nS.setItem('fontStyle', 'sans');
             return false;
         } else {
-            serifLabel.className = "a";
-            sansLabel.className = "";
-            notePad.style.fontFamily = serif;
-            noteStorage.setItem('fontStyle', 'serif');
+            sL.className = "a";
+            ssL.className = "";
+            np.style.fontFamily = serif;
+            nS.setItem('fontStyle', 'serif');
             return false;
         }
     },
 
-    checkFontStyle: function() {
-        if (noteStorage.fontStyle) {
+    sFS: function() {
+        if (nS.fontStyle) {
             
-            if (noteStorage.fontStyle == 'sans') {
-                sansLabel.className = "a";
-                notePad.style.fontFamily = sans;
+            if (nS.fontStyle == 'sans') {
+                ssL.className = "a";
+                np.style.fontFamily = sans;
             } else {
-                serifLabel.className = "a";
-                notePad.style.fontFamily = serif;
+                sL.className = "a";
+                np.style.fontFamily = serif;
             }
         }
     },
 
-    countCharacters: function(text) {
-        characterCountLabel.innerHTML = text.length;
+    cntC: function(text) {
+        cCL.innerHTML = text.length;
 
         var value = text;
         var regex = /\s+/gi;
         var wordCount = value.trim().replace(regex, ' ').split(' ').length;
-        wordCountLabel.innerHTML = wordCount;
+        wCL.innerHTML = wordCount;
     },
 
-    characterWatcher: function() {
-        notePad.onkeyup = function () {
-            scrtchpd.countCharacters(this.value);
+    cW: function() {
+        np.onkeyup = function () {
+            scrtchpd.cntC(this.value);
         };
     },
 
-    checkTextSize: function() {
-        if (noteStorage.textSize) {
-            notePad.style.fontSize = parseFloat(noteStorage.textSize) + "px";
+    cTS: function() {
+        if (nS.textSize) {
+            np.style.fontSize = parseFloat(nS.textSize) + "px";
         }
     },
 
-    resizeText: function(multiplier) {
-        var currentFont = notePad.style.fontSize.replace("px", "");
-        var textSize= notePad.style.fontSize = parseInt(currentFont) + parseInt(multiplier) + "px"
+    rszT: function(multiplier) {
+        var currentFont = np.style.fontSize.replace("px", "");
+        var textSize= np.style.fontSize = parseInt(currentFont) + parseInt(multiplier) + "px"
 
-        noteStorage.setItem('textSize', textSize);
+        nS.setItem('textSize', textSize);
         return false;
     },
 
-    resetText: function(defaultSize) {
-        var textSize = notePad.style.fontSize = defaultSize + "px";
-        notePad.style.lineHeight = '1.3em';
-        noteStorage.setItem('textSize', textSize);
+    rstT: function(defaultSize) {
+        var textSize = np.style.fontSize = defaultSize + "px";
+        np.style.lineHeight = '1.3em';
+        nS.setItem('textSize', textSize);
         return false;
     },
 
-    clearPad: function() {
+    clP: function() {
         if (confirm('Clear all of your notes?')) { 
-            notePad.value = "";
-            scrtchpd.focusNote();
-            noteStorage.myNote= notePad.value;
+            np.value = "";
+            scrtchpd.fN();
+            nS.myNote= np.value;
         }
         return false;
     }
 }
-scrtchpd.jsOptions();
-scrtchpd.focusNote();
-scrtchpd.setNote();
-scrtchpd.saveNote();
-scrtchpd.checkTextSize();
-scrtchpd.checkFontStyle();
-scrtchpd.characterWatcher();
-scrtchpd.closeToolTip();
+scrtchpd.jsO();
+scrtchpd.fN();
+scrtchpd.stN();
+scrtchpd.svN();
+scrtchpd.cTS();
+scrtchpd.sFS();
+scrtchpd.cW();
+scrtchpd.cTT();

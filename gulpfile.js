@@ -7,7 +7,7 @@ var pump = require('pump');
 var rename = require("gulp-rename");
 var htmlmin = require('gulp-htmlmin');
 
-gulp.task('default', ['browser-sync', 'watch', 'compress']);
+gulp.task('default', ['browser-sync', 'watch', 'compress', 'html']);
 
 // Static Server + watching scss/html files
 gulp.task('watch', ['sass'], function() {
@@ -56,7 +56,7 @@ gulp.task('compress', function (cb) {
 
 gulp.task('html', function () {
   return gulp
-    .src('src/index.html')
+    .src('src/index.php')
     .pipe(htmlmin({collapseWhitespace: true, collapseBooleanAttributes: true}))
     .pipe(gulp.dest(''));
 });
