@@ -7,7 +7,7 @@ var pump = require('pump');
 var rename = require("gulp-rename");
 var htmlmin = require('gulp-htmlmin');
 
-gulp.task('default', ['browser-sync', 'watch', 'compress', 'html']);
+gulp.task('default', ['browser-sync', 'watch', 'compress']);
 
 // Static Server + watching scss/html files
 gulp.task('watch', ['sass'], function() {
@@ -15,7 +15,7 @@ gulp.task('watch', ['sass'], function() {
     gulp.watch(['index.html', '_/*', '*.html', 'src/index.html']);
 });
 
-gulp.task('browser-sync', ['sass', 'compress', 'html'], function() {
+gulp.task('browser-sync', ['sass', 'compress'], function() {
     browserSync({
         server: {
             baseDir: "./"

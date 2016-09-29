@@ -1,5 +1,5 @@
 noteStorage = localStorage;
-notePad = document.getElementById('note-content');
+notePad = document.getElementById('n-c');
 sansLabel = document.getElementById('t-ss');
 serifLabel = document.getElementById('t-s');
 characterCountLabel = document.getElementById('c-c');
@@ -7,7 +7,12 @@ wordCountLabel = document.getElementById('w-c');
 sans = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 serif = '"Hoefler Text", "Cambria", "Baskerville Old Face", Garamond, "Times New Roman", Georgia, serif';
 var scrtchpd = {
-    
+    jsOptions: function(){
+        var button = document.getElementById('b');
+        button.className = "m-b n-d-i v";
+        var save = document.getElementById('s-w');
+        save.className = "h";
+    }, 
     setNote: function() {
         if (noteStorage.myNote) {
             notePad.value = noteStorage.myNote;    
@@ -28,7 +33,7 @@ var scrtchpd = {
     },
 
     tooltipToggle: function() {
-        tooltip = document.getElementById('n-d');
+        var tooltip = document.getElementById('n-d');
         var className = tooltip.getAttribute("class");
         if (className=="h") {
             tooltip.className = "v";
@@ -126,7 +131,7 @@ var scrtchpd = {
         return false;
     }
 }
-
+scrtchpd.jsOptions();
 scrtchpd.focusNote();
 scrtchpd.setNote();
 scrtchpd.saveNote();
