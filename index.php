@@ -1,16 +1,13 @@
 <?php
 	session_start();
-
   if (!isset($_SESSION['note'])) {
     $_SESSION["note"] = trim(' ');  
   }
-  
 	$note = $_SESSION["note"];
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$_SESSION["note"] = $_POST['n-c'];
 		$note = $_SESSION["note"];
 	}
-	// print_r($_SESSION);
 ?>
 <!DOCTYPE HTML >
 <html lang="en">
@@ -62,8 +59,7 @@ To get started, just start typing!"><?php echo htmlspecialchars($note); ?></text
             <svg class="i" viewBox="0 0 16 15.3"><path class="st0" d="M2.4 9c0.2 0.6 0.4 1.2 0.7 1.7l-0.9 0.9c-0.4 0.4-0.4 0.7 0 1l0.9 0.9c0.4 0.4 0.6 0.4 1 0l1-1c0.5 0.3 1 0.5 1.5 0.6v1.2c0 0.6 0.2 0.8 0.7 0.8h1.3c0.5 0 0.7-0.2 0.7-0.8v-1.2c0.5-0.1 1-0.3 1.5-0.6l1 1c0.4 0.4 0.7 0.4 1 0.1l0.9-0.9c0.4-0.4 0.4-0.6-0.1-1l-1-1c0.3-0.5 0.6-1.1 0.7-1.7h1.3c0.5 0 0.7-0.2 0.7-0.8V7.1c0-0.6-0.2-0.8-0.7-0.8h-1.3c-0.1-0.5-0.3-1-0.6-1.5l0.9-0.9c0.4-0.4 0.4-0.7 0.1-1L13 1.9c-0.4-0.4-0.6-0.4-1 0.1l-0.9 0.9C10.6 2.5 10 2.3 9.4 2.1V0.9c0-0.6-0.2-0.8-0.7-0.8H7.4c-0.5 0-0.7 0.2-0.7 0.8v1.2C6 2.3 5.4 2.5 4.9 2.8L4 2C3.6 1.6 3.4 1.6 3 1.9L2.1 2.8c-0.4 0.4-0.4 0.6 0.1 1L3 4.8c-0.3 0.5-0.5 1-0.6 1.5H1.2c-0.5 0-0.7 0.2-0.7 0.8v1.2C0.5 8.8 0.7 9 1.2 9H2.4zM5.8 7.7c0-1.2 1-2.2 2.2-2.2s2.2 1 2.2 2.2S9.2 9.9 8 9.9 5.8 8.9 5.8 7.7z"/></svg>
         </div>
     </section>
-		<!-- <script src="_/j/i.min.js"></script> -->
-		<script src="/src/i.js"></script>
+		<script src="_/j/i.min.js"></script>
 
     <!--[if !IE]>
       // Because IE doesn't want to show placeholder on focus.
